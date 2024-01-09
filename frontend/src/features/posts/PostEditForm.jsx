@@ -5,8 +5,6 @@ import { API_URL } from '../../constants';
 function PostEditForm(){
   const [post, setPost] = useState(null);
   const { id } = useParams();
-  const [, setLoading] = useState(null);
-  const [, setError] = useState(null);
   const navigate = useNavigate();
 
 
@@ -23,9 +21,6 @@ function PostEditForm(){
         }
       }catch(e){
         console.error(e);
-        setError(e);
-      } finally {
-        setLoading(false);
       }
     }
     fetchCurrentPost();
