@@ -1,24 +1,9 @@
 # README
+# Rails API with React Frontend CRUD App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is a simple CRUD (Create, Read, Update, Delete) application that combines a Ruby on Rails API backend with a React frontend.
 
-Things you may want to cover:
+## Features
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Create, Read, Update, and Delete posts.
+- Seamless integration of a Ruby on Rails API with a React frontend.
