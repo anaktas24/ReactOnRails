@@ -30,8 +30,8 @@ function PostDetails(){
 
   return(
     <div>
-      <h2>post.title</h2>
-      <p>post.body</p>
+      <h2>{post.title}</h2>
+      <p>{post.body}</p>
       <Link to="/">Back to Posts</Link>
     </div>
   );
