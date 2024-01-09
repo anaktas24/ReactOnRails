@@ -5,7 +5,7 @@ import { API_URL } from '../../constants'
 
 function PostsList() {
   const [posts, setPosts] = useState([]) //posts is an array of objects
-  const [loading, setLoading] = useState(true) //loading is a boolean
+  const [, setLoading] = useState(true) //loading is a boolean
   const [error, setError] = useState(null) //error is an object
 
   //Fetch posts from Rails API
@@ -32,6 +32,21 @@ function PostsList() {
   },[]);
     console.log("Rendering", posts);
 
+  const deletePost = async (id) => {
+    try {
+      //delete request to: http://localhost:3000/api/v1/posts/:id
+      const response = await fetch(`${API_URL}/${id}`, {
+        method: "DELETE",
+      });
+      if (response.ok) {
+        setPosts(posts.filter((post) => post.id !== id));
+      } else {
+        throw response;
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }
 
   return (
     <div>
@@ -42,7 +57,11 @@ function PostsList() {
               {post.title}
             </Link>
           </h2>
-          <p>{post.body}</p>
+          <div className="post-links">
+            <Link to={`/posts/${post.id}/edit`}>Edit</Link>
+            {" | "}
+            <button onClick={() => deletePost(post.id)}>Delete</button>
+          </div>
         </div>
       ))}
        {error && <p>Error loading posts: {error}</p>}
